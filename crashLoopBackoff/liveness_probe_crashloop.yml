@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crash-deployment
+  labels:
+    crash: command
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      crash: command
+  template:
+    metadata:
+      labels:
+        crash: command
+    spec:
+      containers:
+      - name: crashloop
+        image: techdeepa20/command_crashloop:v1
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          exec:
+            command:
+              - cat 
+              - /tmp/healthy
+          initialDelaySeconds: 0
+          periodSeconds: 1
