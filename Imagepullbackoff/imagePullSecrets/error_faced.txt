@@ -1,0 +1,21 @@
+Once the image is pull, that is cached in the containerd.
+So docker rmi image doesnot help here
+
+either we need to restart the docker desktop or
+
+# List images
+sudo ctr -n k8s.io images list
+
+# Remove image
+sudo ctr -n k8s.io images remove techdeepa20/nginx:v2
+
+adding imagePullPoicy: Always/IfNotPresent/Never // always pulls the new images
+
+kubectl create secret docker-registry demo --docker-server=https://index.docker.io/v1/ --docker-username=<> --docker-password=<> --docker-email=<>
+
+Kubernetes Secrets alone are not fully secure because they are Base64‑encoded.
+In production, we prefer cloud‑native identity mechanisms like Managed Identity, IRSA, or Workload Identity so no credentials are stored.
+When secrets are required, we use external secret managers and encrypt etcd with strict RBAC.
+
+az aks update -n myAKS -g myRG --attach-acr myACR
+
