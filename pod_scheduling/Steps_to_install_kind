@@ -1,0 +1,41 @@
+Kind can be used to create a muti node cluster
+They create a cluster in the container
+
+In the powershell:
+
+curl.exe -Lo kind-windows-amd64.exe https://kind.sigs.k8s.io/dl/v0.31.0/kind-windows-amd64
+Move-Item .\kind-windows-amd64.exe c:\some-dir-in-your-PATH\kind.exe
+
+Then add the path to environment variable
+
+In the powershell check
+where kind
+kind version
+
+To create a cluster in kind:
+
+we need have docker desktop running
+
+kind create cluster --name=multi  // single node cluster
+kind get clusters
+
+kind create cluster --name=multi --config=multi-node-cluster.yml
+
+kind delete cluster --name=abhi
+
+>>>>>>>>>
+
+kubectl config view | grep kind
+kubectl config use-context <cluster>
+
+
+#######################
+
+Error faced
+1.
+
+PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kind create cluster --name=multi-cluster --config=kind-cluster.yml
+ERROR: failed to create cluster: failed to get docker info: command "docker info --format '{{json .}}'" failed with error: exit status 1
+
+Command Output: {"ID":"","Containers":0,"ContainersRunning":0,"ContainersPaused":0,"ContainersStopped":0,"Images":0,"Driver":"","DriverStatus":null,"Plugins":{"Volume":null,"Network":null,"Authorization":null,"Log":null},"MemoryLimit":false,"SwapLimit":false,"CpuCfsPeriod":false,"CpuCfsQuota":false,"CPUShares":false,"CPUSet":false,"PidsLimit":false,"IPv4Forwarding":false,"Debug":false,"NFd":0,"OomKillDisable":false,"NGoroutines":0,"SystemTime":"","LoggingDriver":"","CgroupDriver":"","NEventsListener":0,"KernelVersion":"","OperatingSystem":"","OSVersion":"","OSType":"","Architecture":"","IndexServerAddress":"","RegistryConfig":null,"NCPU":0,"MemTotal":0,"GenericResources":null,"DockerRootDir":"","HttpProxy":"","HttpsProxy":"","NoProxy":"","Name":"","Labels":null,"ExperimentalBuild":false,"ServerVersion":"","Runtimes":null,"DefaultRuntime":"","Swarm":{"NodeID":"","NodeAddr":"","LocalNodeState":"","ControlAvailable":false,"Error":"","RemoteManagers":null},"LiveRestoreEnabled":false,"Isolation":"","InitBinary":"","ContainerdCommit":{"ID":""},"RuncCommit":{"ID":""},"InitCommit":{"ID":""},"SecurityOptions":null,"CDISpecDirs":null,"Warnings":null,"ClientInfo":{"Debug":false,"Version":"28.5.1","DefaultAPIVersion":"1.51","GitCommit":"e180ab8","GoVersion":"go1.24.8","Os":"windows","Arch":"amd64","BuildTime":"Wed Oct  8 12:19:16 2025","Context":"desktop-linux","Plugins":[{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"v1.9.11","ShortDescription":"Docker AI Agent - Ask Gordon","Name":"ai","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-ai.exe"},{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"v0.29.1-desktop.1","ShortDescription":"Docker Buildx","Name":"buildx","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-buildx.exe"},{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"v0.4.39","ShortDescription":"Docker Cloud","Name":"cloud","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-cloud.exe"},{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"v2.40.0-desktop.1","ShortDescription":"Docker Compose","Name":"compose","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-compose.exe"},{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"0.0.44","ShortDescription":"Get a shell into any image or container","Name":"debug","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-debug.exe"},{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"v0.2.0","ShortDescription":"Docker Desktop commands","Name":"desktop","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-desktop.exe"},{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"v0.2.31","ShortDescription":"Manages Docker extensions","Name":"extension","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-extension.exe"},{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"v1.4.0","ShortDescription":"Creates Docker-related starter files for your project","Name":"init","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-init.exe"},{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"v0.22.0","ShortDescription":"Docker MCP Plugin","Name":"mcp","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-mcp.exe"},{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"v0.1.42","ShortDescription":"Docker Model Runner","Name":"model","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-model.exe"},{"SchemaVersion":"0.1.0","Vendor":"Anchore Inc.","Version":"0.6.0","ShortDescription":"View the packaged-based Software Bill Of Materials (SBOM) for an image","URL":"https://github.com/docker/sbom-cli-plugin","Name":"sbom","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-sbom.exe"},{"SchemaVersion":"0.1.0","Vendor":"Docker Inc.","Version":"v1.18.3","ShortDescription":"Docker Scout","Name":"scout","Path":"C:\\Program Files\\Docker\\cli-plugins\\docker-scout.exe"}],"Warnings":null}}
+error during connect: Get "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/v1.51/info": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.

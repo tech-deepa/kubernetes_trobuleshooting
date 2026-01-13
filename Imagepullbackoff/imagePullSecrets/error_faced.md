@@ -17,5 +17,5 @@ Kubernetes Secrets alone are not fully secure because they are Base64‑encoded.
 In production, we prefer cloud‑native identity mechanisms like Managed Identity, IRSA, or Workload Identity so no credentials are stored.
 When secrets are required, we use external secret managers and encrypt etcd with strict RBAC.
 
-az aks update -n myAKS -g myRG --attach-acr myACR
+az aks update -n myAKS -g myRG --attach-acr myACR  // node need to use imagePullsecret
 
