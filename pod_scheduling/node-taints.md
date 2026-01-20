@@ -1,3 +1,4 @@
+```powershell
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl get nodes
 NAME                          STATUS   ROLES           AGE   VERSION
 multi-cluster-control-plane   Ready    control-plane   42m   v1.35.0
@@ -74,5 +75,6 @@ deployment.apps/nginx-deployment created
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl get pods -o wide
 NAME                                READY   STATUS    RESTARTS   AGE   IP           NODE                    NOMINATED NODE   READINESS GATES
 nginx-deployment-5cf545f787-9kkgc   1/1     Running   0          9s    10.244.2.6   multi-cluster-worker    <none>           <none>
+```
 nginx-deployment-5cf545f787-kd6px   1/1     Running   0          9s    10.244.1.3   multi-cluster-worker2   <none>           <none>
 nginx-deployment-5cf545f787-xh7jq   1/1     Running   0          9s    10.244.3.9   multi-cluster-worker3   <none>           <none>
