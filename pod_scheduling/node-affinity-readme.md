@@ -1,7 +1,7 @@
 1. Node Affinity with preferred
 
 When the Node affinity prefered key value matched with the pod label, then it will create the pod in the prefered node, else creates the pod in the node which is available.
-
+```powershell
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl apply -f node-affinity-preferred.yml
 deployment.apps/nginx-deployment configured
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl get pods -w   
@@ -46,11 +46,11 @@ NAME                                READY   STATUS    RESTARTS   AGE    IP      
 nginx-deployment-5874fd7657-cz5s5   1/1     Running   0          80s    10.244.2.5   multi-cluster-worker    <none>           <none>
 nginx-deployment-5874fd7657-ph6bm   1/1     Running   0          2m1s   10.244.3.2   multi-cluster-worker3   <none>           <none>
 nginx-deployment-5874fd7657-vvj8q   1/1     Running   0          98s    10.244.1.2   multi-cluster-worker2   <none>           <none>
-
+```
 2. Node Affinity required
 
 When the Node affinity required key value matched with the pod label, then it will create the pod in the node, else doesnot schedule the pod.
-
+```powershell
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl apply -f node-affinity-required.yml
 deployment.apps/nginx-deployment created
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl get pods
@@ -123,5 +123,6 @@ deployment.apps/nginx-deployment created
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl get pods                           
 NAME                                READY   STATUS    RESTARTS   AGE
 nginx-deployment-7947894b47-87vwm   1/1     Running   0          7s
+```
 nginx-deployment-7947894b47-8sdt8   1/1     Running   0          7s
 nginx-deployment-7947894b47-mgs7b   1/1     Running   0          7s
