@@ -1,3 +1,4 @@
+```powershell
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl apply -f node-selector.yml
 deployment.apps/nginx-deployment created
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl get pods -w
@@ -61,6 +62,7 @@ nginx-deployment-68bcd9bb5b-qdhvt   1/1     Running             0          10m
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl get pod -w
 NAME                                READY   STATUS              RESTARTS   AGE
 nginx-deployment-68bcd9bb5b-8hlg5   0/1     ContainerCreating   0          10m
+```
 nginx-deployment-68bcd9bb5b-8r88h   1/1     Running             0          10m
 nginx-deployment-68bcd9bb5b-qdhvt   1/1     Running             0          10m
 nginx-deployment-68bcd9bb5b-8hlg5   1/1     Running             0          10m
