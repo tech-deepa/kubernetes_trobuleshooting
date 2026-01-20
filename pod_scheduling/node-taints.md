@@ -6,7 +6,8 @@ multi-cluster-worker          Ready    <none>          41m   v1.35.0
 multi-cluster-worker2         Ready    <none>          41m   v1.35.0
 multi-cluster-worker3         Ready    <none>          41m   v1.35.0
 error: the server doesn't have a resource type "multi-cluster-worker3"
-
+```
+```powershell
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl edit node multi-cluster-worker3
 node/multi-cluster-worker3 edited
 
