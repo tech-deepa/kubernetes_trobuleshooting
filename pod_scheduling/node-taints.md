@@ -67,14 +67,15 @@ NAME                                READY   STATUS    RESTARTS   AGE   IP       
 nginx-deployment-77bc6bd484-f5x4s   1/1     Running   0          8s    10.244.3.7   multi-cluster-worker3   <none>           <none>
 nginx-deployment-77bc6bd484-nqlgm   1/1     Running   0          8s    10.244.3.6   multi-cluster-worker3   <none>           <none>
 nginx-deployment-77bc6bd484-rc26s   1/1     Running   0          8s    10.244.3.8   multi-cluster-worker3   <none>           <none>
-
+```
 After adding toleration in the manifest file, it created the pod in the node that matches the taints label
 
+```powershell
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl apply -f node-taint-toleration.yml
 deployment.apps/nginx-deployment created
 PS C:\Users\Dee\project\kubernetes_trobuleshooting\pod_scheduling> kubectl get pods -o wide
 NAME                                READY   STATUS    RESTARTS   AGE   IP           NODE                    NOMINATED NODE   READINESS GATES
 nginx-deployment-5cf545f787-9kkgc   1/1     Running   0          9s    10.244.2.6   multi-cluster-worker    <none>           <none>
-```
 nginx-deployment-5cf545f787-kd6px   1/1     Running   0          9s    10.244.1.3   multi-cluster-worker2   <none>           <none>
 nginx-deployment-5cf545f787-xh7jq   1/1     Running   0          9s    10.244.3.9   multi-cluster-worker3   <none>           <none>
+```
